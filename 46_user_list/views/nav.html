@@ -1,0 +1,13 @@
+<div class="branding"><a ng-href="#/">angularJS</a></div>
+<nav>
+	<ul>
+		<li ng-show="currentUser">
+			<a ng-href="#/meetings">
+				<span ng-show="howManyMeetings" class="badge">{{ howManyMeetings }}</span>
+				Meetings
+			</a>
+		</li>
+		<li ng-hide="currentUser"><a ng-href="#/login">Login</a></li>
+		<li ng-hide="currentUser"><a ng-href="#/register">Register</a></li>
+	</ul>
+</nav>

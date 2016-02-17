@@ -1,0 +1,26 @@
+<section class="card login">
+	<form name="myform"
+	      novalidate ng-submit="login()">
+		<div class="textintro">
+			<h1>Hi there!</h1>
+			<p>Log-in to access the website!</p>
+			<p class="message" ng-show="message">{{ message }}</p>
+		</div>
+		<fieldset>
+			<input type="email" name="email" placeholder="Email"
+			       ng-model="user.email" ng-required="true">
+			<p class="error validationerror"
+			   ng-show="myform.email.$invalid && myform.email.$touched">
+				Must be a valid email!
+			</p>
+			<input type="password" name="password" placeholder="Password"
+			       ng-model="user.password" ng-required="true" ng-minlength="6">
+			<p class="error validationerror"
+			   ng-show="myform.password.$invalid && myform.password.$touched">
+				Password is required and must be 6 characters or more!
+			</p>
+		</fieldset>
+		<button type="submit" class="btn" ng-disabled="myform.$invalid">Login</button>
+		<p>or <a ng-href="#/register">register</a></p>
+	</form>
+</section>

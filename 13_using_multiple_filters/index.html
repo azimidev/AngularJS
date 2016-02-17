@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Angular jS</title>
+	<link href="main.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"></script>
+	<script src="main.js"></script>
+</head>
+<body>
+
+		<div class="main" ng-controller="MyController">
+
+			<div class="search">
+
+				<h1>Artist Directory</h1>
+				<label>Search:</label>
+				<input ng-model="query" placeholder="Search for artists" autofocus>
+
+				<label class="formgroup">By:
+					<select ng-model="artistOrder">
+						<option value="name">Name</option>
+						<option value="reknown">Reknown</option>
+					</select>
+				</label>
+
+				<label class="formgroup">
+					<input ng-model="direction" type="radio" name="direction" checked>
+					Ascending
+				</label>
+				<label class="formgroup">
+					<input ng-model="direction" type="radio" name="direction" value="reverse">
+					Descending
+				</label>
+
+			</div>
+
+			<ul class="artistlist">
+				<li class="artist cf" ng-repeat="item in artists | filter:query | orderBy:artistOrder:direction">
+					<img ng-src="{{'img'}}.jpg" alt="Photo of Artist">
+					<div class="info">
+						<h1>{{ item.name }}</h1>
+						<h2>{{ item.reknown }}</h2>
+					</div>
+				</li>
+			</ul>
+		</div>
+</body>
+</html>
